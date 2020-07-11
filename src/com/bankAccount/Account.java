@@ -2,11 +2,30 @@ package com.bankAccount;
 
 public class Account {
 	private String name; //instance variable
+	private double balance; //instance variable
 	
-	// constructor initializes name with parameter name
-	public Account(String name) //constructor name is class name
+	// constructor that receives two parameters
+	public Account(String name, double balance) //constructor name is class name
 	{
-		this.name = name;
+		this.name = name; //assign name to instance variable name
+		
+		//validate that the the balance is greater than 0.0; if it is not,
+		//instance variable balance keeps its default initial value of 0.0
+		if (balance > 0.0 )//if the balance is valid
+				this.balance = balance; //assign it to instance variable
+	}
+	
+	// method that deposits (adds) only a valid amount to the variable
+	public void deposit(double depositAmount)
+	{
+		if (depositAmount > 0.0) //if the depositAmmount is valid
+			balance = balance + depositAmount; //add it to the balance
+	}
+	
+	//method returns the account balance
+	public double getBalance()
+	{
+		return balance;
 	}
 	
 	// method to set the name in the object
